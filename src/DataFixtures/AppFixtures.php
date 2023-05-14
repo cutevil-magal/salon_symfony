@@ -13,6 +13,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Comment;
 use App\Entity\Post;
+use App\Entity\ServiceCategory;
 use App\Entity\Tag;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -26,8 +27,9 @@ class AppFixtures extends Fixture
 {
     public function __construct(
         private UserPasswordHasherInterface $passwordHasher,
-        private SluggerInterface $slugger
-    ) {
+        private SluggerInterface            $slugger
+    )
+    {
     }
 
     public function load(ObjectManager $manager): void
@@ -35,6 +37,27 @@ class AppFixtures extends Fixture
         $this->loadUsers($manager);
         $this->loadTags($manager);
         $this->loadPosts($manager);
+        $this->loadCategories($manager);
+    }
+
+    private function loadCategories(ObjectManager $manager): void
+    {
+        foreach ($this->getCategoriesData() as $name) {
+            $category = new ServiceCategory();
+            $category->setName($name);
+            $manager->persist($category);
+        }
+        $manager->flush();
+    }
+
+    private function getCategoriesData(): array
+    {
+        return [
+            'Маникюр',
+            'Брови',
+            'Ресницы',
+            'TEST',
+        ];
     }
 
     private function loadUsers(ObjectManager $manager): void
