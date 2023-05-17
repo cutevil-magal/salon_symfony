@@ -12,10 +12,12 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Post;
+use App\Entity\Service;
 use App\Entity\ServiceCategory;
 use App\Entity\User;
 use App\Form\PostType;
 use App\Form\ServiceCategoryType;
+use App\Form\ServiceType;
 use App\Repository\PostRepository;
 use App\Repository\ServiceCategoryRepository;
 use App\Security\PostVoter;
@@ -101,6 +103,30 @@ class ServiceCategoryController extends AbstractController
 
         return $this->render('admin/category/new.html.twig', [
             'category' => $category,
+            'form' => $form,
+        ]);
+    }
+
+    /**
+     * Displays a form to edit an existing category entity.
+     */
+    #[Route('/{id<\d+>}/edit', name: 'admin_service_category_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, ServiceCategory $serviceCategory, EntityManagerInterface $entityManager): Response
+    {
+        $form = $this->createForm(ServiceCategoryType::class, $serviceCategory);
+
+        $form->add('save', SubmitType::class, ['label' => 'Save']);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+            $this->addFlash('success', 'service.updated_successfully');
+
+            return $this->redirectToRoute('admin_service_category_edit', ['id' => $serviceCategory->getId()]);
+        }
+
+        return $this->render('admin/category/edit.html.twig', [
+            'entity' => $serviceCategory,
             'form' => $form,
         ]);
     }

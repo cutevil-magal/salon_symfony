@@ -1,0 +1,19 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body_id 'admin_service_category_edit' %}
+
+{% block main %}
+    <h1>{{ 'title.edit_service_category'|trans({'id': entity.id}) }}</h1>
+
+    {{ form(form) }}
+{% endblock %}
+
+{% block sidebar %}
+
+    <div class="section actions">
+        {# {{ include('admin/service/_delete_form.html.twig', {post: post}, with_context = false) }}  #}
+
+    </div>
+
+    {{ parent() }}
+{% endblock %}
