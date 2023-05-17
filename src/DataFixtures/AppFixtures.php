@@ -56,7 +56,6 @@ class AppFixtures extends Fixture
             'Маникюр',
             'Брови',
             'Ресницы',
-            'TEST',
         ];
     }
 

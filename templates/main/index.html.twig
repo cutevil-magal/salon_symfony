@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Акцент - салон красоты{% endblock %}
+
+{% block body %}
+    <div class="page-header">
+        <h1>{{ 'title.homepage'|trans|raw }}</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="jumbotron">
+                <p>
+                    {{ 'help.browse_app'|trans|raw }}
+                </p>
+                <p>
+                    <a class="btn btn-primary btn-lg" href="{{ path('blog_index') }}">
+                        <i class="fa fa-users" aria-hidden="true"></i> {{ 'action.browse_app'|trans }}
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="jumbotron">
+                <p>
+                    {{ 'help.browse_admin'|trans|raw }}
+                </p>
+                <p>
+                    <a class="btn btn-primary btn-lg" href="{{ path('admin_index') }}">
+                        <i class="fa fa-lock" aria-hidden="true"></i> {{ 'action.browse_admin'|trans }}
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="region-title text-center">
+                <h2>{{ 'Our specialists'|trans }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="region-title text-center">
+                <h2>{{ 'Services'|trans }}</h2>
+            </div>
+            <div class="row content-wrapper">
+                {% for category in categories %}
+                    <div class="col-sm-12 col-md-4 service-category">
+                        <div class="card service-category--name">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ category.getName() }}</h3>
+                            </div>
+                            {% set services = category.getServices() %}
+                            {% if services %}
+                                {% for service in services %}
+                                    <div class="service-category-service">
+                                        <h3 class="service-title">{{ service.getName() }}</h3>
+                                        <div class="service-price">{{ service.getPrice() }}</div>
+                                        <div class="service-description">{{ service.getDescription()|markdown_to_html|sanitize_html }}</div>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                            <a href="{{ path('recording', {id: category.id}) }}" class="card-link btn btn-success">
+                                <i class="fa fa-list-alt" aria-hidden="true"></i> {{ 'action.recording'|trans }}
+                            </a>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="col-sm-12 center-block">
+                        <i class="fa fa-battery-empty"></i>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+

@@ -8,7 +8,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title>{% block title %}Symfony Demo application{% endblock %}</title>
+        <title>{% block title %}Акцент - салон красоты{% endblock %}</title>
         <link rel="alternate" type="application/rss+xml" title="{{ 'rss.title'|trans }}" href="{{ path('blog_rss') }}">
 
         {#
@@ -33,7 +33,7 @@
                     <div class="container">
                         <div class="navbar-header col-md-3 col-lg-2">
                             <a class="navbar-brand" href="{{ path('homepage') }}">
-                                Symfony Demo
+                                Акцент
                             </a>
 
                             <button type="button" class="navbar-toggle"
@@ -49,24 +49,21 @@
                             <ul class="nav navbar-nav navbar-right">
 
                                 {% block header_navigation_links %}
-                                    <li>
-                                        <a href="{{ path('blog_index') }}">
+                                    {#                                 <li>
+                                        <a href="{{ path('homepage') }}">
                                             <i class="fa fa-home" aria-hidden="true"></i> {{ 'menu.homepage'|trans }}
                                         </a>
-                                    </li>
+                                    </li> #}
+
 
                                     {% if is_granted('ROLE_ADMIN') %}
                                         <li>
-                                            <a href="{{ path('admin_post_index') }}">
+                                            <a href="{{ path('admin_record_index') }}">
                                                 <i class="fa fa-lock" aria-hidden="true"></i> {{ 'menu.admin'|trans }}
                                             </a>
                                         </li>
                                     {% endif %}
                                 {% endblock %}
-
-                                <li>
-                                    <a href="{{ path('blog_search') }}"> <i class="fa fa-search"></i> {{ 'menu.search'|trans }}</a>
-                                </li>
 
                                 {% if app.user %}
                                     <li class="dropdown">

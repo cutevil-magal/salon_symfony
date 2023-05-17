@@ -14,15 +14,33 @@
 
 {% block header_navigation_links %}
     <li>
-        <a href="{{ path('admin_post_index') }}">
+        <a href="{{ path('admin_record_index') }}">
             <i class="fa fa-list-alt" aria-hidden="true"></i> {{ 'menu.post_list'|trans }}
         </a>
     </li>
-    <li>
-        <a href="{{ path('blog_index') }}">
-            <i class="fa fa-home" aria-hidden="true"></i> {{ 'menu.back_to_blog'|trans }}
-        </a>
-    </li>
+
+{% endblock %}
+
+{% block sidebar %}
+    <div class="admin-nav">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ path('admin_service_index') }}">
+                    {{ 'Services'|trans }}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('admin_service_category_index') }}">
+                    {{ 'Categories'|trans }}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('admin_record_index') }}">{{ 'admin.nav_records'|trans }}</a>
+            </li>
+
+        </ul>
+    </div>
+    {{ parent() }}
 {% endblock %}
 
 {% block javascripts %}

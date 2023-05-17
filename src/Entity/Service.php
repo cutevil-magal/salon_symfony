@@ -11,7 +11,7 @@ class Service
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(type: Types::INTEGER)]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
@@ -23,7 +23,7 @@ class Service
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\OneToOne(inversedBy: 'service', cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(inversedBy: 'services')]
     private ?ServiceCategory $category = null;
 
     public function getId(): ?int

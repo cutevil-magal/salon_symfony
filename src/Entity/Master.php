@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\MasterRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: MasterRepository::class)]
@@ -18,6 +20,14 @@ class Master
 
     #[ORM\ManyToOne(inversedBy: 'masters')]
     private ?ServiceCategory $serviceCategory = null;
+
+    #[ORM\OneToMany(mappedBy: 'master', targetEntity: Record::class)]
+    private Collection $records;
+
+    public function __construct()
+    {
+        $this->records = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -44,6 +54,36 @@ class Master
     public function setServiceCategory(?ServiceCategory $serviceCategory): self
     {
         $this->serviceCategory = $serviceCategory;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Record>
+     */
+    public function getRecords(): Collection
+    {
+        return $this->records;
+    }
+
+    public function addRecord(Record $record): self
+    {
+        if (!$this->records->contains($record)) {
+            $this->records->add($record);
+            $record->setMaster($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecord(Record $record): self
+    {
+        if ($this->records->removeElement($record)) {
+            // set the owning side to null (unless already changed)
+            if ($record->getMaster() === $this) {
+                $record->setMaster(null);
+            }
+        }
 
         return $this;
     }

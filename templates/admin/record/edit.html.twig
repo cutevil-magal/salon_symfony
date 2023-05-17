@@ -1,0 +1,29 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body_id 'admin_record_manage' %}
+
+{% block main %}
+    <h1>{{ 'title.edit_service'|trans({'id': record.id}) }}</h1>
+    {{ form(form) }}
+
+{% endblock %}
+
+{% block sidebar %}
+    <div class="section">
+        {#
+
+        <a href="{{ path('admin_service_show', {id: service.id}) }}" class="btn btn-lg btn-block btn-success">
+        <i class="fa fa-eye" aria-hidden="true"></i> {{ 'action.show_service'|trans }}
+    </a>
+        #}
+
+    </div>
+
+    <div class="section actions">
+        {# {{ include('admin/service/_delete_form.html.twig', {post: post}, with_context = false) }}  #}
+
+    </div>
+
+    {{ parent() }}
+
+{% endblock %}
