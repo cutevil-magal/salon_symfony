@@ -79,7 +79,7 @@
       </trans-unit>
       <trans-unit id="6sz9l7G" resname="title.post_list">
         <source>title.post_list</source>
-        <target>Список записей</target>
+        <target>Список категорий</target>
       </trans-unit>
       <trans-unit id="6mAd7C7" resname="title.edit_post">
         <source>title.edit_post</source>
@@ -440,6 +440,74 @@
       <trans-unit id="mnP0igp" resname="title.category_new">
         <source>title.category_new</source>
         <target>Создание категории</target>
+      </trans-unit>
+      <trans-unit id="YE3ORF4" resname="Services">
+        <source>Services</source>
+        <target>Услуги</target>
+      </trans-unit>
+      <trans-unit id="uLHYlMa" resname="Categories">
+        <source>Categories</source>
+        <target>Категории</target>
+      </trans-unit>
+      <trans-unit id="XfUDJRF" resname="admin.nav_records">
+        <source>admin.nav_records</source>
+        <target>Записи администратора</target>
+      </trans-unit>
+      <trans-unit id="QKHiJrn" resname="label.create_service">
+        <source>label.create_service</source>
+        <target>__Создать услугу</target>
+      </trans-unit>
+      <trans-unit id="LTPMdWc" resname="action.create_service">
+        <source>action.create_service</source>
+        <target>Создание услуги</target>
+      </trans-unit>
+      <trans-unit id="O0fAMbW" resname="label.service_category">
+        <source>label.service_category</source>
+        <target>__label.service_category</target>
+      </trans-unit>
+      <trans-unit id="ZNtz3fN" resname="title.service_new">
+        <source>title.service_new</source>
+        <target>__title.service_new</target>
+      </trans-unit>
+      <trans-unit id=".pzTR7P" resname="title.edit_service">
+        <source>title.edit_service</source>
+        <target>__title.edit_service</target>
+      </trans-unit>
+      <trans-unit id="czrgMzd" resname="action.show_service">
+        <source>action.show_service</source>
+        <target>__action.show_service</target>
+      </trans-unit>
+      <trans-unit id="UC262bF" resname="title.record_list">
+        <source>title.record_list</source>
+        <target>Список записей</target>
+      </trans-unit>
+      <trans-unit id="47aK8Ez" resname="record.status">
+        <source>record.status</source>
+        <target>Статус</target>
+      </trans-unit>
+      <trans-unit id="jfZTTp." resname="record.time">
+        <source>record.time</source>
+        <target>Время</target>
+      </trans-unit>
+      <trans-unit id="L3FUbAV" resname="record.service">
+        <source>record.service</source>
+        <target>Услуга</target>
+      </trans-unit>
+      <trans-unit id="REBFJX2" resname="record.manage">
+        <source>record.manage</source>
+        <target>__record.manage</target>
+      </trans-unit>
+      <trans-unit id="1unVLW." resname="record.no_records_found">
+        <source>record.no_records_found</source>
+        <target>У Вас нет записей</target>
+      </trans-unit>
+      <trans-unit id="hBlVicK" resname="Our specialists">
+        <source>Our specialists</source>
+        <target>Наши специалисты</target>
+      </trans-unit>
+      <trans-unit id="rrgi2fp" resname="action.recording">
+        <source>action.recording</source>
+        <target>Записаться</target>
       </trans-unit>
     </body>
   </file>
