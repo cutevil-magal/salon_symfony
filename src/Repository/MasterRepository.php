@@ -41,7 +41,7 @@ class MasterRepository extends ServiceEntityRepository
 
     public function findByCategoryId($id) {
         return $this->createQueryBuilder('m')
-            ->andWhere('m.service_id = :val')
+            ->andWhere('m.serviceCategory = :val')
             ->setParameter('val', $id)
             ->orderBy('m.id', 'ASC')
             ->setMaxResults(50)

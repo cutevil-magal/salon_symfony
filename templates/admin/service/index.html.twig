@@ -25,6 +25,7 @@
         {% for service in items %}
             <tr>
                 <td>{{ service.name }}</td>
+                {#  <td>{{ service.name }}</td> #}
                 <td>{{ service.getCategory().getName() }}</td>
 
                 <td class="text-right">
@@ -33,10 +34,10 @@
                         <a href="{{ path('admin_post_show', {id: post.id}) }}" class="btn btn-sm btn-default">
                             <i class="fa fa-eye" aria-hidden="true"></i> {{ 'action.show'|trans }}
                         </a>
-
-                        <a href="{{ path('admin_post_edit', {id: post.id}) }}" class="btn btn-sm btn-primary">
+                        #}
+                        <a href="{{ path('admin_service_edit', {id: service.id}) }}" class="btn btn-sm btn-primary">
                             <i class="fa fa-edit" aria-hidden="true"></i> {{ 'action.edit'|trans }}
-                        </a>  #}
+                        </a>
 
                     </div>
                 </td>
